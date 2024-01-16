@@ -29,7 +29,6 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm run grab -- --site=toonamiaftermath.com
-    - run: echo \<\!--$(date)--\> | cat - guide.xml | tail -n +1 > temp && mv temp guide.xml
     - name: config
       run: |
           git config --global user.email "action@github.com"
@@ -40,6 +39,6 @@ jobs:
           ls -la
     - name: commit & push
       run: |
-          git commit -m "xml is updated"
+          git commit -am "xml is updated"
           git push
     
